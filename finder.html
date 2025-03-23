@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buddy Finder Prototype</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Ga+Maamli&family=Protest+Revolution&family=Rubik+Glitch+Pop&family=Rubik+Wet+Paint&display=swap');
+    body {
+      background:linear-gradient(135deg, rgb(0, 255, 255), rgb(128, 0, 255), rgb(255, 105, 180)) ;
+      color: grey; 
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+     /* Navigation Bar */
+     .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--navbar-bg);
+      padding: 1rem;
+      color: black;
+
+    }
+    
+    
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links li {
+      margin: 0;
+    }
+    .nav-links a {
+      color: var(--navbar-link-color);
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s ease; text-shadow 0.3s ease;;
+    }
+    .nav-links a:hover {
+      color:#F8FAFC;
+    }
+
+    /* Buddy Finder Section */
+    .buddy-finder {
+      background: #fff;
+      margin: 2rem auto;
+      padding: 2rem;
+      width: 90%;
+      max-width: 800px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .buddy-finder h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .buddy-finder form {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+      justify-content: center;
+    }
+
+    .buddy-finder label {
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .buddy-finder input,
+    .buddy-finder select {
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .buddy-finder button {
+      padding: 0.5rem 1rem;
+      background: #007BFF;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+
+    .buddy-finder button:hover {
+      background: #0056b3;
+    }
+
+    .buddy-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .buddy-card {
+      background: #fafafa;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      flex: 1 1 200px;
+      min-width: 250px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+
+    .buddy-card h3 {
+      margin-top: 0;
+    }
+
+    .buddy-card p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    .buddy-card button {
+      margin-top: 0.5rem;
+      padding: 0.5rem;
+      background: #28a745;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+
+    .buddy-card button:hover {
+      background: #218838;
+    }
+    h2{
+      font-family:"Protest Revolution", sans-serif;
+      color:#06B6D4;
+    }
+    .navbar {
+      display: flex;
+      justify-content: center;  /* center horizontally */
+      align-items: center;      /* center vertically */
+      padding: 10px 20px;
+     
+    }
+  
+  .logo{
+    width: 85px;
+    cursor: pointer;  
+}
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 3rem;
+  }
+
+  
+  </style>
+  
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="TRAVALLY.png" alt="Travally Logo" style="height: 50px;" >
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="COMING SOON.html">YatraBot</a></li>
+      <li><a href="About us.html">About</a></li>
+      <li><a href="COMING SOON.html">Profile</a></li>
+    </ul>
+  </nav>
+
+  <section class="buddy-finder">
+    <h2>Buddy Finder</h2>
+    <form id="buddySearch" onsubmit="filterBuddies(event)">
+      <label for="interest">Interest:</label>
+      <select id="interest" name="interest">
+        <option value="campusTour">Campus Tour</option>
+        <option value="foodWalk">Food Walk</option>
+        <option value="studyBuddy">Study Buddy</option>
+        <option value="sports">Sports</option>
+      </select>
+
+      <label for="time">Preferred Time:</label>
+      <input type="time" id="time" name="time" />
+
+      <button type="submit">Find Buddies</button>
+    </form>
+
+    <div class="buddy-list" id="buddyList">
+      <!-- Buddy cards will be displayed here -->
+    </div>
+  </section>
+
+  <script>
+    // Sample buddy data
+    const buddyData = [
+      { interest: 'campusTour', time: '09:00', participants: 1, maxParticipants: 5, description: 'Campus Tour around the main campus.' },
+      { interest: 'foodWalk', time: '11:00', participants: 2, maxParticipants: 5, description: 'Exploring the best food spots on campus.' },
+      { interest: 'studyBuddy', time: '14:00', participants: 3, maxParticipants: 5, description: 'Study group for upcoming exams.' },
+      { interest: 'sports', time: '17:00', participants: 0, maxParticipants: 5, description: 'Outdoor sports games at the sports complex.' },
+      { interest: 'campusTour', time: '09:30', participants: 0, maxParticipants: 5, description: 'Tour of the historic campus sites.' },
+      { interest: 'studyBuddy', time: '16:00', participants: 2, maxParticipants: 5, description: 'Group study session in the library.' },
+    ];
+
+    // Function to filter and display buddy cards based on user input
+    function filterBuddies(event) {
+      event.preventDefault();
+      const interest = document.getElementById('interest').value;
+      const time = document.getElementById('time').value;
+      
+      // Filter the buddy data based on the interest and time input
+      const filteredBuddies = buddyData.filter(buddy => {
+        const matchesInterest = buddy.interest === interest;
+        const matchesTime = time ? buddy.time === time : true;
+        return matchesInterest && matchesTime;
+      });
+
+      displayBuddies(filteredBuddies);
+    }
+
+    // Function to display the filtered buddy cards
+    function displayBuddies(buddies) {
+      const buddyList = document.getElementById('buddyList');
+      buddyList.innerHTML = ''; // Clear the list before rendering new cards
+
+      if (buddies.length === 0) {
+        buddyList.innerHTML = '<p>No buddies found based on your search.</p>';
+        return;
+      }
+
+      buddies.forEach(buddy => {
+        const buddyCard = document.createElement('div');
+        buddyCard.className = 'buddy-card';
+        buddyCard.innerHTML = `
+          <h3>${buddy.interest.replace(/([A-Z])/g, ' $1').toUpperCase()}</h3>
+          <p>${buddy.description}</p>
+          <p>Meeting at: ${buddy.time}</p>
+          <p>Participants: ${buddy.participants}/${buddy.maxParticipants}</p>
+          <button ${buddy.participants >= buddy.maxParticipants ? 'disabled' : ''}>${buddy.participants >= buddy.maxParticipants ? 'Full' : 'Join'}</button>
+        `;
+        buddyList.appendChild(buddyCard);
+      });
+    }
+
+    // Display all buddies when the page loads
+    displayBuddies(buddyData);
+  </script>
+  <footer>
+    &copy; 2025 Yatra Path | Designed with devotion ✨
+  </footer>
+
+</body>
+</html>

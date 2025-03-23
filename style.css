@@ -1,0 +1,446 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Ga+Maamli&family=Protest+Revolution&family=Rubik+Glitch+Pop&family=Rubik+Wet+Paint&display=swap');
+/* Styles moved here to keep everything in one file */
+
+/* Default Light Theme */
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --navbar-bg:#ffffff; /*header color*/
+  --navbar-link-color: #000000;
+  --hero-bg:#F5F7FA;
+  --hero-text-color: #fff;
+  --button-bg: #ff6600;
+  --button-text-color: #fff;
+  --card-bg:rgb(165, 233, 216);
+  --footer-bg: #333;
+  --footer-text-color: #fff;
+  --message-user-bg: #ffcc80;
+  --message-bot-bg:rgb(150, 225, 224);
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --navbar-bg: #1f1f1f;
+  --navbar-link-color: #fff;
+  --hero-bg: #333;
+  --hero-text-color: #fff;
+  --button-bg: #ff6600;
+  --button-text-color: #fff;
+  --card-bg: #2b2b2b;
+  --footer-bg: #333;
+  --footer-text-color: #fff;
+  --message-user-bg: #616161;
+  --message-bot-bg: #3a3a3a;
+}
+body {
+  background:linear-gradient(135deg, rgb(0, 255, 255), rgb(128, 0, 255), rgb(255, 105, 180)) ;
+  color: grey; /*--------------------background color------------------------------*/
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif; 
+  
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+} <!--Roboto--->
+
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--navbar-bg);
+  padding: 1rem;
+  color: var(--navbar-link-color);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ff6600;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+.nav-links li {
+  margin: 0;
+}
+.nav-links a {
+  color: var(--navbar-link-color);
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease; text-shadow: 0.3s ease;
+  text-shadow: 0 0 10px rgba(255, 102, 0, 0.9);
+}
+.nav-links a:hover {
+  color: #ff6600;
+  text-shadow: 0 0 20px #ff6600, 0 0 30px #ff6600;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: url('campus.jpg') no-repeat center/cover;
+  background-color: var(--hero-bg);
+  color: var(--hero-text-color);
+  box-shadow: 0 0 20px rgba(255, 102, 0, 0.5);
+}
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-shadow:0 0 20px rgb(50, 50, 50), 
+  0 2px 4px rgba(0, 0, 0, 0.25);
+
+}
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 20px rgb(50, 50, 50), 
+  0 2px 4px rgba(0, 0, 0, 0.25);  
+}
+
+.hero button {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border: none;
+  background: var(--button-bg);
+  color: var(--button-text-color);
+  cursor: pointer;
+  border-radius: 25px;
+  transition: background 0.3s ease;box-shadow: 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 102, 0, 0.7); /* Neon glow */
+}
+.hero button:hover {
+  background: #e55d00;
+  box-shadow: 0 0 20px rgba(255, 102, 0, 0.9); /* Neon glow */
+}
+  .slideshow-container {
+    position: relative;
+    max-width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .mySlides {
+    display: none;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  /* Optional: Text & button style */
+  .hero h1,
+  .hero p,
+  .hero button {
+    z-index: 1; /* Make sure text and button appear on top */
+  }
+
+
+/* Chat Section */
+.chat-section {
+  background: var(--background-color);
+  margin: 2rem auto;
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.chat-window {
+  height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.message {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+}
+.message.bot {
+  background: var(--message-bot-bg);
+  text-align: left;
+  box-shadow: 0 0 5px rgba(0, 255, 255, 0.7); /* Neon text glow */
+}
+.message.user {
+  background: var(--message-user-bg);
+  text-align: right;
+  box-shadow: 0 0 5px rgba(255, 0, 255, 0.7);
+}
+.chat-input {
+  display: flex;
+}
+.chat-input input {
+  flex: 1;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.chat-input button {
+  padding: 0.75rem 1.5rem;
+  background: var(--button-bg);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 0.5rem;
+  transition: background 0.3s ease;
+}
+.chat-input button:hover {
+  background: #e55d00;
+}
+/* Theme Toggle Button */
+.theme-toggle {
+position: fixed;
+top: 20px;
+right: 20px;
+background: var(--button-bg);
+color: var(--button-text-color);
+padding: 0.75rem;
+border: none;
+cursor: pointer;
+border-radius: 50%;
+font-size: 1.5rem;
+transition: background 0.3s ease, box-shadow 0.3s ease;
+box-shadow: 0 0 10px rgba(255, 102, 0, 0.7); /* Neon glow */
+}
+.theme-toggle:hover {
+background: #e55d00;
+box-shadow: 0 0 20px rgba(255, 102, 0, 0.9); /* Neon glow */
+}
+.theme-toggle.rotate {
+transform: rotate(360deg);
+}
+
+/* Buddy Finder Section */
+.buddy-finder {
+  background: var(--background-color);
+  margin: 2rem auto;
+  padding: 2rem;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.buddy-finder form {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+.buddy-finder label {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.buddy-finder input,
+.buddy-finder select {
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 250px;
+}
+.buddy-finder button {
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  background: var(--button-bg);
+  color: var(--button-text-color);
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+.buddy-finder button:hover {
+  background: #e55d00;
+}
+
+.buddy-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.buddy-card {
+  background: var(--card-bg);
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  flex: 1 1 200px;
+  min-width: 220px;
+  text-align: center;
+}
+
+.buddy-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.buddy-card p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #666;
+}
+
+.buddy-card button {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: #28a745;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.buddy-card button:hover {
+  background: #218838;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: var(--footer-bg);
+  color: var(--footer-text-color);
+  margin-top: 2rem;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--button-bg);
+  color: var(--button-text-color);
+  padding: 0.75rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  transition: background 0.3s ease;
+}
+.theme-toggle:hover {
+  background: #e55d00;
+}
+.video-slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 450px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.video-slideshow video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.video-slideshow video.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Optional: Text & button style */
+.hero h1,
+.hero p,
+.hero button {
+  z-index: 1; /* Make sure text and button appear on top */
+}
+html {
+  scroll-behavior: smooth;
+}
+h1{
+  font-family:"Protest Revolution", sans-serif;
+
+}
+.logo{
+  width: 85px;
+  cursor: pointer;  
+}
+.navbar {
+display: flex;
+justify-content: center;  /* center horizontally */
+align-items: center;      /* center vertically */
+padding: 10px 20px;
+}
+
+/* CSS styles trimmed for brevity */
+
+#preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #d4af37; /* gold/yatra feel */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation:   pulse 5s ease-in-out infinite ;
+}
+
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(2);
+    opacity: 1;
+  }
+}
+
+
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.warrior-quote {
+  font-family: 'Georgia', serif;
+  font-size: 1.3rem;
+  color: #d4af37;
+  animation: blinkText 5s infinite;
+}
+
+@keyframes blinkText {
+  50% { opacity: 0.4; }
+}
+
