@@ -378,8 +378,11 @@ html {
 }
 h1{
   font-family:"Protest Revolution", sans-serif;
-
 }
+h2{
+  font-family:"Protest Revolution", sans-serif;
+}
+
 .logo{
   width: 85px;
   cursor: pointer;  
