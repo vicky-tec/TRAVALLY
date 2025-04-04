@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TRAVALLY</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="preloader">
+    <div class="warrior-quote">"Your Yatra begins with struggle..."</div>
+  </div>
+  <audio id="warriorSound" preload="auto">
+    <source src="flute.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="TRAVALLY.png" alt="Travally Logo" style="height: 30px;">
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="COMING SOON.html">YuktiBot</a></li>
+      <li><a href="COMING SOON.html">YatraMitra</a></li>
+      <li><a href="finder.html">HumSafar</a></li>
+      <li><a href="About us.html">About Us</a></li>
+      <li><a href="LOGINpage/loginpage.html">Profile</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="home" class="hero">
+    <div class="video-slideshow" id="videoSlideshow">
+      <video class="active" autoplay muted loop src="video1.mp4"></video>
+      <video src="video2.mp4" muted loop></video>
+    </div>
+   
+    <h1 style="color: purple;">Welcome to Travally</h1>
+    <p style="color: purple;">Discover your Place with our Yukti Bot and find your adventure buddy!</p>
+    <button onclick="document.getElementById('guide').scrollIntoView();">Start Exploring</button>
+  </header>
+
+  <!-- AI Tourist Guide Chatbot Section -->
+  <section id="guide" class="chat-section">
+    <h2>Yukti Bot</h2>
+    <div class="chat-window" id="chatWindow">
+      <div class="message bot">Hello! I'm your AI Guide. Ask me anything about the campus.</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Type your question..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </section>
+
+  <!-- Buddy Finder Module -->
+  <section id="buddy" class="buddy-finder">
+    <form id="buddySearch">
+      <label for="interest">Interest:</label>
+      <select id="interest" name="interest">
+        <option value="Tour"> Tour</option>
+        <option value="foodWalk">Food Walk</option>
+        <option value="studyBuddy">Study Buddy</option>
+        <option value="sports">Sports Facilities</option>
+      </select>
+      <label for="time">Time:</label>
+      <input type="time" id="time" name="time" />
+      <button type="button" onclick="window.location.href='finder.html'">Find Buddies</button>
+    </form>
+    <div class="buddy-list">
+      <div class="buddy-card">
+        <h3>Tour Group</h3>
+        <p>Meeting at Main Gate, 09:00 PM</p>
+        <p>Participants: 1/5</p>
+        <button><a href="finder.html">Join</a></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 TRAVALLY | Designed with devotion ✨
+  </footer>
+
+  <!-- Theme Toggle Button -->
+  <button id="themeToggle" class="theme-toggle" onclick="toggleTheme()">🌙</button>
+
+
+  <script src="script.js" defer></script>
+</body>
+</html>
