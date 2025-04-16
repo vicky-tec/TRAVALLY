@@ -355,13 +355,13 @@ function getBotResponse(userInput) {
   if (input.includes("katihar") && input.includes("purnea")) {  
     return yuktiBotResponses.distanceInfo["katihar-purnea"];
   }
-  if (input.includes("bihar") || input.includes("state") || input.includes("tourist") || input.includes("place") || input.includes("sightseeing") || input.includes("attraction") || input.includes("destination")) {
+  if ( input.includes("state") || input.includes("tourist") || input.includes("place") || input.includes("sightseeing") || input.includes("attraction") || input.includes("destination")) {
     return randomFrom(yuktiBotResponses.touristPlaces);
   }
   if (input.includes("temple") || input.includes("mandir") || input.includes("shrine") || input.includes("religious site") || input.includes("spiritual")) {
     return randomFrom(yuktiBotResponses.temples);
   }
-  if (input.includes("bihar") || input.includes("state") || input.includes("culture") || input.includes("food") || input.includes("history")) {
+  if ( input.includes("state") || input.includes("culture") || input.includes("food") || input.includes("history")) {
     return randomFrom(yuktiBotResponses.help);
   }
   if (input.includes("weather") || input.includes("climate") || input.includes("temperature")) {
