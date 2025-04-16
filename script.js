@@ -134,6 +134,7 @@ const yuktiBotResponses = {
     "I'm YuktiBot, your virtual assistant for all things Bihar!",
   ],
   biharPlaces : {
+    Bihar: ["Bihar is a state in eastern India, known for its rich history and culture. It is home to many ancient sites and universities"],
     patna: ["Patna is the capital city of Bihar, known for its rich history and culture. You can visit Patna Sahib Gurudwara, Golghar, and the Patna Museum."],
     arrah: ["Arrah is known for its historical significance and the famous Arrah battle. You can visit the Arrah Fort and the Sita Kund."],
     bhagalpur: ["Bhagalpur is famous for its silk industry and the Vikramshila ruins. You can also visit the Mandar Hill."],
@@ -249,8 +250,8 @@ function getBotResponse(userInput) {
   if (input.includes("rajgir")) {
     return randomFrom(yuktiBotResponses.biharPlaces["rajgir"]);
   }
-  if (input.includes("madhubani")) {
-    return randomFrom(yuktiBotResponses.biharPlaces["madhubani"]);
+  if (input.includes("Bihar")) {
+    return randomFrom(yuktiBotResponses.biharPlaces["Bihar"]);
   }
   if (input.includes("sitamarhi")) {
     return randomFrom(yuktiBotResponses.biharPlaces["sitamarhi"]);
